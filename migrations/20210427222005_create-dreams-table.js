@@ -2,7 +2,7 @@
 exports.up = (knex) => {
   return knex.schema.createTable('dreams', (table) => {
     table.increments();  
-    table.date('date');
+    table.string('date');
     table.boolean('lucid');
     table.string('type');
     table.specificType('tagsarray','text ARRAY');
@@ -11,5 +11,5 @@ exports.up = (knex) => {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('dreams')
+  return knex.schema.dropTableIfExists('dreams');
 };
