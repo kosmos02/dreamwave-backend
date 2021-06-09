@@ -39,6 +39,13 @@ app.post('/dreams', (request, response) => {
         .then(dream => response.json(dream[0]))
 })
 
+app.delete('/dreams/:id', (request, response) => {
+    database('dreams')
+        .where({ id: request.params.id})
+        .del()
+        .then(dream => response.json[0])
+})
+
 // const candies = [
 //     {id: 1, name: 'Skittles'},
 //     {id: 2, name: 'Starburst'},
